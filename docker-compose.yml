@@ -1,0 +1,17 @@
+version: 'version'
+services:
+  jenkins:
+    container_name: jenkins-compose
+    image: jenkins/jenkins:alpine
+    ports:
+      - "8180:8080"
+      - "50001:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+    restart: always
+    networks:
+      - net_jenkins
+volumes:
+  jenkins_home: {}
+networks:
+  net_jenkins: 
